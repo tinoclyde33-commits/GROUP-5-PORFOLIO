@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GROUP 5</title>
+    <link rel="stylesheet" href="PORTFOLIO_HOME.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+</head>
+<body>
+    <nav class="nav">
+        <li><a href="PORTFOLIO_HOME.HTML">HOME</a></li>
+        <li><a href="PROJECTS.HTML">PROJECTS</a></li>
+        <li><a href="ABOUTF.HTML">ABOUT</a></li>
+    </nav>
+    <div class="container">
+        <h1 class="title">Welcome to Our Portfolio</h1>
+        <p class="developers">
+            <span class="typewriter-text"></span><span class="cursor"></span>
+        </p>
+    </div>
+    <div>
+        <h1 class="ABOUT1">ABOUT OUR GROUP</h1>
+        <p class="TEXTABOUT">We are a group of passionate developers dedicated to creating innovative solutions and delivering exceptional user experiences.</p>
+    </div>
+
+
+
+
+    <script>
+        const words = ["Mababa, Mark Jovin", "Rosquita, Fibelen", "Moselina, Roxie", "Tino, Clyde Drexler", "Sebastian, Ralph John", "Campos, Rhian"];
+        let wordIndex = 0;
+        let charIndex = 0;
+        let isDeleting = false;
+        const typewriterElement = document.querySelector(".typewriter-text");
+        const typingSpeed = 100;
+        const deletingSpeed = 50;
+        const pauseBetweenWords = 1000;
+
+        function typeWriter() {
+            const currentWord = words[wordIndex];
+
+            if (isDeleting) {
+                // Deleting phase
+                typewriterElement.textContent = currentWord.substring(0, charIndex - 1);
+                charIndex--;
+
+                if (charIndex === 0) {
+                    isDeleting = false;
+                    wordIndex = (wordIndex + 1) % words.length;
+                    setTimeout(typeWriter, pauseBetweenWords);
+                } else {
+                    setTimeout(typeWriter, deletingSpeed);
+                }
+            } else {
+                // Typing phase
+                typewriterElement.textContent = currentWord.substring(0, charIndex + 1);
+                charIndex++;
+
+                if (charIndex === currentWord.length) {
+                    isDeleting = true;
+                    setTimeout(typeWriter, pauseBetweenWords);
+                } else {
+                    setTimeout(typeWriter, typingSpeed);
+                }
+            }
+        }
+
+        // Start the typewriter effect
+        typeWriter();
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+</body>
+</html>

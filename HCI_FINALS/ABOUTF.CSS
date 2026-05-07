@@ -1,0 +1,294 @@
+@import url('https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css');
+
+body{
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    position: relative;
+    overflow-x: hidden;
+}
+
+body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="rgba(255,255,255,0.05)" fill-opacity="1" d="M0,96L48,112C96,128,192,160,288,165.3C384,171,480,149,576,144C672,139,768,149,864,160C960,171,1056,181,1152,176C1248,171,1344,149,1392,139.7L1440,128L1440,0L1392,0C1344,0,1248,0,1152,0C1056,0,960,0,864,0C768,0,672,0,576,0C480,0,384,0,288,0C192,0,96,0,48,0L0,0Z"></path></svg>') repeat;
+    pointer-events: none;
+    animation: drift 20s infinite linear;
+}
+
+.nav {
+    height: 60px;
+    display: flex;
+    justify-content: center;
+    list-style: none;
+    width: 100%;
+    top: 0;
+    position: relative;
+    z-index: 100;
+    background: linear-gradient(90deg, #1a1a2e 0%, #16213e 100%);
+    gap: 20px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+    align-items: center;
+    backdrop-filter: blur(10px);
+}
+
+.nav a {
+    color: white;
+    text-decoration: none;
+    padding: 14px 28px;
+    display: block;
+    border-radius: 12px;
+    transition: all 0.3s ease;
+    font-weight: 600;
+    letter-spacing: 1.5px;
+    font-size: 0.95em;
+    border: 2px solid transparent;
+    position: relative;
+}
+
+.nav a::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 0;
+    height: 2px;
+    background: #ffd700;
+    transition: all 0.3s ease;
+    transform: translateX(-50%);
+}
+
+.nav a:hover {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(102, 126, 234, 0.5);
+    border: 2px solid #ffd700;
+}
+
+.nav a:hover::after {
+    width: 70%;
+}
+
+.title{
+    text-align: center;
+    color: #ffffff;
+    display: block;
+    padding: 50px 0 30px 0;
+    font-size: 3em;
+    font-weight: 800;
+    text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.4);
+    letter-spacing: 3px;
+    animation: slideInDown 0.8s ease-out;
+    position: relative;
+    z-index: 10;
+}
+
+.title::after {
+    content: '';
+    display: block;
+    width: 150px;
+    height: 4px;
+    background: linear-gradient(90deg, #ffd700 0%, #ff6b9d 100%);
+    margin: 15px auto 0;
+    border-radius: 2px;
+}
+
+.about-text {
+    margin: 0 auto;
+    width: 85%;
+    text-align: center;
+    color: #1a1a2e;
+    display: block;
+    padding: 40px;
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 20px;
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.25);
+    line-height: 2;
+    font-size: 1.15em;
+    border-left: 6px solid #667eea;
+    border-top: 3px solid #ffd700;
+    animation: fadeInUp 1s ease-out;
+    position: relative;
+    z-index: 10;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+    transition: all 0.3s ease;
+}
+
+.about-text:hover {
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
+    transform: translateY(-5px);
+}
+
+.container {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 60px 20px;
+    border-radius: 20px;
+    margin: 40px;
+    box-shadow: inset 0 8px 32px rgba(31, 38, 135, 0.37);
+    backdrop-filter: blur(4px);
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    position: relative;
+    z-index: 10;
+}
+
+.team-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 50px;
+    margin-bottom: 30px;
+    padding: 40px 20px;
+    background: rgba(255, 255, 255, 0.08);
+    border-radius: 15px;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.team-cards-top {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 40px;
+    width: 100%;
+    max-width: 1000px;
+    margin: 0 auto 50px;
+    justify-items: center;
+}
+
+.team-member {
+    background: linear-gradient(135deg, rgba(102, 126, 234, 0.2) 0%, rgba(118, 75, 162, 0.2) 100%);
+    padding: 30px;
+    border-radius: 15px;
+    text-align: center;
+    border: 2px solid rgba(255, 215, 0, 0.3);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+    transition: all 0.3s ease;
+    animation: fadeInUp 1s ease-out;
+    width: 100%;
+    max-width: 280px;
+}
+
+.team-member:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 35px rgba(102, 126, 234, 0.4);
+    border: 2px solid #ffd700;
+}
+
+.team-members-group {
+    grid-column: 1 / -1;
+    background: linear-gradient(135deg, rgba(255, 215, 0, 0.1) 0%, rgba(118, 75, 162, 0.15) 100%);
+    padding: 35px;
+    border-radius: 15px;
+    text-align: center;
+    border: 2px solid #ffd700;
+    box-shadow: 0 10px 25px rgba(255, 215, 0, 0.2);
+    animation: fadeInUp 1.2s ease-out;
+}
+
+.team-members-group:hover {
+    box-shadow: 0 15px 40px rgba(255, 215, 0, 0.3);
+    transform: scale(1.02);
+}
+
+.role {
+    color: #ffd700;
+    font-size: 1.3em;
+    font-weight: 700;
+    margin: 0 0 15px 0;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
+}
+
+.name {
+    color: #ffffff;
+    font-size: 1.15em;
+    font-weight: 600;
+    margin: 8px 0;
+    letter-spacing: 1.5px;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+.team-members-group .name {
+    color: #e0e0e0;
+}
+
+@keyframes slideInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes drift {
+    0% {
+        transform: translateX(0px);
+    }
+    100% {
+        transform: translateX(100px);
+    }
+}
+
+@keyframes navhover {
+    from {
+        background-color: #1a1a2e;
+     }
+    to { 
+        background-color: #667eea;
+     }
+}
+
+@media (max-width: 768px) {
+    .title {
+        font-size: 2em;
+        padding: 30px 0 20px 0;
+    }
+    
+    .about-text {
+        width: 90%;
+        padding: 25px;
+        font-size: 1em;
+        line-height: 1.6;
+    }
+    
+    .container {
+        margin: 20px;
+        padding: 30px 15px;
+    }
+    
+    .nav a {
+        padding: 10px 16px;
+        font-size: 0.85em;
+    }
+    
+    .team-cards-top {
+        grid-template-columns: 1fr;
+        gap: 20px;
+        max-width: 350px;
+    }
+    
+    .team-member {
+        padding: 20px;
+    }
+}

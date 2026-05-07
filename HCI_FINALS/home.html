@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HOME</title>
+    <link rel="stylesheet" href="home.css">
+</head>
+<body>
+    <header>
+        <img src="resources/quench_background_1.jpg" alt="quench cafe" class="homeimg">
+        <h1 class="homeimgtext">Welcome</h1>
+    </header>
+<button class="menu-btn">☰</button>
+<nav class="nav">
+     <li class="nav-links">
+        <a href="home.html">HOME</a>
+        <a href="menu.html">MENU</a>
+        <a href="about.html">ABOUT</a>
+    </li>
+</nav>
+<div class="popprodcon">
+    <h1 class="popprodtitle">Popular Products</h1>
+    <li class="popprod-list">
+        <div class="popprod-item">
+         <img class="imgproduct" src="resources/Leche Flan.jpg" alt="Cassava Cake">
+         <h2 class="cookiestitle">Leche Flan</h2>
+         <p>₱ 20</p>
+         <button class="order2">Order Now</button>
+        </div>
+        <div class="popprod-item">
+         <img class="imgproduct" src="resources/Ube Hopia.jpg" alt="ube hopia">
+         <h2 class="cookiestitle">Ube Hopia</h2>
+         <p>₱ 5</p>
+         <button class="order2">Order Now</button>
+        </div>
+        <div class="popprod-item">
+         <img class="imgproduct" src="resources/Coffee Latte.jpeg" alt="Coffee Latte">
+         <h2 class="cookiestitle">Coffee Latte</h2>
+         <p>₱ 15</p>
+         <button class="order2">Order Now</button>
+        </div>
+        <div class="popprod-item">
+         <img class="imgproduct" src="resources/Hot Chocolate.jpg" alt="Hot Chocolate">
+         <h2 class="cookiestitle">Hot Chocolate</h2>
+         <p>₱ 20</p>
+         <button class="order2">Order Now</button>
+        </div>
+    </li>
+</div>
+<script>
+   const menuBtn = document.querySelector(".menu-btn");
+const nav = document.querySelector(".nav");
+
+ menuBtn.addEventListener("click", () => {
+  nav.classList.toggle("show");
+ });
+    const orderButtons = document.querySelectorAll('.order2');
+    orderButtons.forEach(button => {
+        button.addEventListener('click', () => {
+            alert('Thank You for Buying');
+            if (confirm("Would you like to view our menu?")) {
+                window.location.href = 'menu.html';
+            }
+        });
+    });
+</script>
+</body>
+</html>
