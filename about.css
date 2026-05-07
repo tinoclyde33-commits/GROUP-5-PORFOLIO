@@ -1,0 +1,94 @@
+.nav {
+  position: fixed;
+  top: 30px;
+  left: -300px; 
+  width: 220px;
+  height: 100%;
+  background-color: #333;
+  color: white;
+  padding: 20px;
+  transition: left 0.5s ease;
+}
+.nav.show {
+  left: 0;
+}
+.menu-btn {
+  position: fixed;
+  top: 10px;
+  left: 10px;
+  padding: 10px 15px;
+  background-color: #333;
+  color: white;
+  font-size: 24px;
+  cursor: pointer;
+  z-index: 100;
+}
+.nav .nav-links {
+  top: 10px;
+  list-style: none;
+  padding: 30px 0px ;
+  margin: 0;
+}
+.nav .nav-links a {
+  top: 10px;
+  display: block;
+  color: white;
+  padding: 15px 0;
+  font-size: 16px;
+}
+.nav .nav-links a:hover {
+  top: 10px;
+  background-color: #555;
+  padding-left: 10px;
+}
+.title{
+    text-align: center;
+    color: #072c0e; 
+}
+.subtitle{
+    text-align: center;
+    color: #072c0e; 
+}
+.margin{
+    margin: 20px;
+}
+.group {
+    display: absolute;
+    justify-content: center;
+    gap: 20px;
+}
+.description {
+    text-align: center;
+    padding: 40px;
+    font-size: 18px;
+}
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #f5f5f5;
+}
+.group-list {
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    justify-content: center;
+    align-items: center;
+    padding-left:210px;
+    list-style: none;
+}
+.group-list2{
+  display: grid;
+    grid-template-columns: repeat(3,1fr);
+    justify-content: center;
+    align-items: center;
+    list-style: none;
+    padding-left: 210px;
+}
+.member-image {
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+    align-self: center;
+    display:block;
+    border-radius: 50%;
+}
+

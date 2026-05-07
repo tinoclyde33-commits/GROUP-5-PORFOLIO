@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ABOUT US</title>
+    <link rel="stylesheet" href="about.css">
+</head>
+<body>
+<button class="menu-btn">☰</button>
+<nav class="nav">
+    <aside>
+     <li class="nav-links">
+        <a href="home.html">HOME</a>
+        <a href="menu.html">MENU</a>
+        <a href="about.html">ABOUT</a>
+    </li>
+    </aside>
+</nav>
+<h1 class="title">About Us</h1>
+<p class="description">Welcome to Quench Cafe, where refreshing drinks meet freshly baked delights. 
+        We are a catering café that specializes in a wide variety of baked goods, including delicious cookies and pastries,
+         paired perfectly with our coffees and teas. At Quench Cafe, we are committed to delivering quality, flavor,
+          and satisfaction in every order whether you're dining in, taking out, or booking us for your special events. 
+          Our goal is to create a warm and inviting experience while serving treats that truly quench your cravings.
+</p>
+<div class="aboutus">
+    <h2 class="subtitle">GROUP 5</h2>
+    <ul class="group-list">
+        <li class="group" >
+        <img class="member-image" src="resources/Mababa.jpg" alt="mark">
+        <a href="https://www.facebook.com/share/18hnBRV6jA/" target="_blank">MABABA, MARK JOVIN</a>
+    </li>
+    <li class="group">
+        <img class="member-image" src="resources/Rosquita.jpg" alt="fibelen">
+        <a href="https://www.facebook.com/share/1ceDBdxwW7/" target="_blank">ROSQUITA, FIBELEN</a>
+    </li>
+    <li class="group">
+        <img class="member-image" src="resources/Moselina.jpg" alt="roxie">
+        <a href="https://www.facebook.com/share/1B2EZBqNs1/" target="_blank">MOSELINA, ROXIE</a>
+    </li>
+   
+    </ul>
+</div>
+<div>
+    <ul class="group-list2">
+        <li class="group3">
+            <img class="member-image" src="resources/Tino.jpeg" alt="clyde">
+            <a href="https://www.facebook.com/share/1WagaHNvwh/" target="_blank">TINO, CLYDE DREXLER</a>
+        </li>
+        <li class="group4">
+            <img class="member-image" src="resources/Sebastian.jpg" alt="ralph">
+            <a href="https://www.facebook.com/share/1ARzje75xR/" target="_blank">SEBASTIAN, RALPH JOHN</a>
+        </li>
+         <li class="group5">
+        <img class="member-image" src="resources/Campos.jpg" alt="rhian">
+        <a href="https://www.facebook.com/share/1Ctrn6sDfh/" target="_blank">CAMPOS, RHIAN ALTHEA</a>
+    </li>
+    </ul>
+</div>
+<script>
+   const menuBtn = document.querySelector(".menu-btn");
+const nav = document.querySelector(".nav");
+    menuBtn.addEventListener("click", () => {
+    nav.classList.toggle("show");
+    });
+</script>
+</body>
+</html>

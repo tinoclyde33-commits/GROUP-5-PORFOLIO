@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MENU</title>
+    <link rel="stylesheet" href="menu.css">
+</head>
+<body>
+<button class="menu-btn">☰</button>
+<nav class="nav">
+    <aside>
+    <li class="nav-links">
+        <a href="home.html">HOME</a>
+        <a href="menu.html">MENU</a>
+        <a href="about.html">ABOUT</a>
+    </li>
+    </aside>
+</nav>
+    <h1 class="title">Quench Café Menu</h1>
+    <h1 class="subtitle">Snacks</h1>
+<div class="container">
+    <div class="product-item"><img class="imgcookies" src="resources/Cringcles.jpg" alt="Cringcles">
+     <h2 class="cookiestitle">Cringcles</h2>
+     <p>₱ 5</p>
+     <button class="add">Add to Cart</button><button class="buy">Order Now</button>
+    </div>
+    <div class="product-item"><img class="imgcookies" src="resources/Pineapple Pie.jpg" alt="Pineapple Pie">
+     <h2 class="cookiestitle">Pineapple Pie</h2>
+     <p>₱ 10</p>
+     <button class="add">Add to Cart</button><button class="buy">Order Now</button>
+    </div>
+    <div class="product-item"><img class="imgcookies" src="resources/Cassava Cake.jpg" alt="Cassava Cake">
+     <h2 class="cookiestitle">Cassava Cake</h2>
+     <p>₱ 10</p>
+     <button class="add">Add to Cart</button><button class="buy">Order Now</button>
+    </div>
+    <div class="product-item"><img class="imgcookies" src="resources/Ube Hopia.jpg" alt="Ube Hopia">
+     <h2 class="cookiestitle">Ube Hopia</h2>
+     <p>₱ 5</p>
+     <button class="add">Add to Cart</button><button class="buy">Order Now</button>
+    </div>
+    <div class="product-item"><img class="imgcookies" src="resources/Leche Flan.jpg" alt="Leche Flan">
+     <h2 class="cookiestitle">Leche Flan</h2>
+     <p>₱ 20</p>
+     <button class="add">Add to Cart</button><button class="buy">Order Now</button>
+    </div>
+</div>
+ <h1 class="subtitle">Drinks</h1>
+<div class="container2">
+    <div class="product-item"><img class="imgcookies" src="resources/Americano.webp" alt="Americano">
+     <h2 class="cookiestitle">Americano</h2>
+     <p>₱ 15</p>
+     <button class="add">Add to Cart</button><button class="buy">Order Now</button>
+    </div>
+    <div class="product-item"><img class="imgcookies" src="resources/Coffee Latte.jpeg" alt="Coffee Latte">
+     <h2 class="cookiestitle">Coffee Latte</h2>
+     <p>₱ 20</p>
+     <button class="add">Add to Cart</button><button class="buy">Order Now</button>
+    </div>
+    <div class="product-item"><img class="imgcookies" src="resources/Black Coffee.jpg" alt="Black Coffee">
+     <h2 class="cookiestitle">Black Coffee</h2>
+     <p>₱ 15</p>
+     <button class="add">Add to Cart</button><button class="buy">Order Now</button>
+    </div>
+    <div class="product-item"><img class="imgcookies" src="resources/Black Tea.jpg" alt="Black Tea">
+     <h2 class="cookiestitle">Black Tea</h2>
+     <p>₱ 15</p>
+     <button class="add">Add to Cart</button><button class="buy">Order Now</button>
+    </div>
+    <div class="product-item"><img class="imgcookies" src="resources/Hot Chocolate.jpg" alt="Hot Chocolate">
+     <h2 class="cookiestitle">Hot Chocolate</h2>
+     <p>₱ 20</p>
+     <button class="add">Add to Cart</button><button class="buy">Order Now</button>
+    </div>
+</div>
+<div class="cart" id="cart">
+        <div class="cart-head">
+            <h2>Cart</h2>
+            <button id="toggle-cart" class="toggle-cart">Hide</button>
+        </div>
+        <ul id="cart-items"></ul>
+        <p>Total: ₱ <span id="total"> 0 </span><button class="buy2">Buy</button></p>
+</div>
+<script>
+       const menuBtn = document.querySelector(".menu-btn");
+const nav = document.querySelector(".nav");
+
+ menuBtn.addEventListener("click", () => {
+  nav.classList.toggle("show");
+ });
+        const addButtons = document.querySelectorAll('.add');
+        const cartItems = document.getElementById('cart-items');
+        const totalElement = document.getElementById('total');
+        let total = 0;
+
+        addButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                const productItem = button.parentElement;
+                const productName = productItem.querySelector('h2').textContent;
+                const priceText = productItem.querySelector('p')?.textContent || productItem.querySelector('.price')?.textContent || '₱ 0';
+                const productPrice = parseInt(priceText.replace(/[₱\s]/g, '')) || 0;
+
+                const cartItem = document.createElement('li');
+                cartItem.textContent = `${productName} - ₱ ${productPrice}`;
+
+                const removeBtn = document.createElement('button');
+                removeBtn.textContent = 'Remove';
+                removeBtn.style.marginLeft = '10px';
+                removeBtn.style.cursor = 'pointer';
+                removeBtn.addEventListener('click', () => {
+                    cartItems.removeChild(cartItem);
+                    total -= productPrice;
+                    if (total < 0) total = 0;
+                    totalElement.textContent = total;
+                });
+
+                cartItem.appendChild(removeBtn);
+                cartItems.appendChild(cartItem);
+
+                total += productPrice;
+                totalElement.textContent = total;
+            });
+        });
+        document.querySelector('.buy2').addEventListener('click', () => {
+            if (total > 0) {
+                alert(`Thank you for your purchase! Total: ₱ ${total}`);
+                cartItems.innerHTML = '';
+                total = 0;
+                totalElement.textContent = total;
+            } else {
+                alert('Your cart is empty!');
+            }
+        });
+
+        const toggleCart = document.getElementById('toggle-cart');
+        const cart = document.getElementById('cart');
+        toggleCart.addEventListener('click', () => {
+            const isHidden = cart.classList.toggle('cart-hidden');
+            toggleCart.textContent = isHidden ? 'Show' : 'Hide';
+        });
+
+        const buyButtons = document.querySelectorAll('.buy');
+        buyButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                const productItem = button.parentElement;
+                const productName = productItem.querySelector('h2').textContent;
+                alert(`Thank you for buying ${productName}!`);
+            });
+        });
+    </script>
+</body>
+</html>
