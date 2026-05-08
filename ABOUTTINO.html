@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clyde Drexler Tino | Programmer</title>
+    <link rel="stylesheet" href="about-common.css">
+    <style>
+        :root {
+            --body-bg: radial-gradient(circle at top left, rgba(78, 237, 151, 0.16), transparent 18%), linear-gradient(180deg, #04110c 0%, #081816 100%);
+            --surface: rgba(12, 27, 22, 0.92);
+            --accent: #4ced97;
+            --accent-soft: rgba(78, 237, 151, 0.18);
+            --text: #e8f8ef;
+            --muted: #91b9a7;
+        }
+    </style>
+</head>
+<body>
+    <div class="page">
+        <div class="topbar">
+            <nav class="nav">
+                <a href="#home">HOME</a>
+                <a href="#skills">SKILLS</a>
+                <a href="#experience">EXPERIENCE</a>
+                <a href="#education">EDUCATION</a>
+                <a href="#contact">CONTACT</a>
+                <a class="group-button" href="PORTFOLIO_HOME.HTML">RETURN TO GROUP</a>
+            </nav>
+        </div>
+        <section id="home" class="hero">
+            <div class="hero-left">
+                <h1 class="greeting"><span class="typewriter-text"></span><span class="cursor"></span></h1>
+                <h2>Programmer · Front-end · Problem Solver</h2>
+                <p>I turns interface ideas into working code, delivering polished, responsive experiences that feel smooth and reliable.</p>
+                <div class="hero-buttons">
+                    <a class="button-primary" href="#contact">Contact</a>
+                    <a class="button-secondary" href="#experience">Experience</a>
+                </div>
+                <div class="profile-card">
+                    <div>
+                        <h3>About</h3>
+                        <p>Programmer specializing in front-end interaction, clean markup, and efficient UI performance.</p>
+                    </div>
+                    <div class="profile-meta">
+                        <div class="meta-item"><strong>Role</strong><span>Programmer</span></div>
+                        <div class="meta-item"><strong>Focus</strong><span>Web interfaces</span></div>
+                        <div class="meta-item"><strong>Tools</strong><span>HTML, CSS, JavaScript</span></div>
+                        
+                    </div>
+                </div>
+            </div>
+            <div class="hero-right">
+                <div class="photo-panel">
+                    <img src="resources/tino_finals.jpg" alt="Clyde Drexler Tino | Programmer photo">
+                </div>
+            </div>
+        </section>
+        <div class="section-row">
+            <article id="skills" class="section-block">
+                <h3>Key skills</h3>
+                <ul>
+                    <li>Responsive development</li>
+                    <li>Component design</li>
+                    <li>Performance tuning</li>
+                    
+                </ul>
+            </article>
+            <article id="experience" class="section-block">
+                <h3>Experience</h3>
+                <ul>
+                    <li>Group project collaboration(Quence Cafe)</li>
+                    
+                </ul>
+            </article>
+            <article id="education" class="section-block">
+                <h3>Education</h3>
+                <ul>
+                    <li>Currently Studying BS Information Technology</li>
+                    
+                </ul>
+            </article>
+            <article id="contact" class="section-block">
+                <h3>Contact</h3>
+                <div class="contact-list">
+                    <span><a href="https://www.facebook.com/share/1WagaHNvwh/" target="_blank">facebook.com/clydedrexlertino</a></span>
+                    <span><a href="https://github.com/clydetino" target="_blank">github.com/clydetino</a></span>
+                    
+                </div>
+            </article>
+        </div>
+    </div>
+    <script>
+        const phrases = ["Hello, I'm Tino, Clyde", 'Front-end developer'];
+        const textEl = document.querySelector('.typewriter-text');
+        let phraseIndex = 0;
+        let charIndex = 0;
+        let deleting = false;
+        function animate() {
+            const current = phrases[phraseIndex];
+            if (!deleting) {
+                textEl.textContent = current.slice(0, charIndex + 1);
+                charIndex += 1;
+                if (charIndex === current.length) {
+                    deleting = true;
+                    setTimeout(animate, 1400);
+                    return;
+                }
+            } else {
+                textEl.textContent = current.slice(0, charIndex - 1);
+                charIndex -= 1;
+                if (charIndex === 0) {
+                    deleting = false;
+                    phraseIndex = (phraseIndex + 1) % phrases.length;
+                }
+            }
+            setTimeout(animate, deleting ? 80 : 90);
+        }
+        animate();
+    </script>
+</body>
+</html>

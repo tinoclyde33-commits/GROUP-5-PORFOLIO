@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rhian Althea Campos | Researcher</title>
+    <link rel="stylesheet" href="about-common.css">
+    <style>
+        :root {
+            --body-bg: radial-gradient(circle at top left, rgba(196,124,255,0.2), transparent 18%), linear-gradient(180deg, #160f24 0%, #10081b 100%);
+            --surface: rgba(22, 12, 42, 0.92);
+            --accent: #c47cff;
+            --accent-soft: rgba(196, 124, 255, 0.18);
+            --text: #f2edf7;
+            --muted: #b9abcf;
+        }
+    </style>
+</head>
+<body>
+    <div class="page">
+        <div class="topbar">
+            <nav class="nav">
+                <a href="#home">HOME</a>
+                <a href="#skills">SKILLS</a>
+                <a href="#experience">EXPERIENCE</a>
+                <a href="#education">EDUCATION</a>
+                <a href="#contact">CONTACT</a>
+                <a class="group-button" href="PORTFOLIO_HOME.HTML">RETURN TO GROUP</a>
+            </nav>
+        </div>
+        <section id="home" class="hero">
+            <div class="hero-left">
+                <h1 class="greeting"><span class="typewriter-text"></span><span class="cursor"></span></h1>
+                <h2>Researcher</h2>
+                <p>Rhian makes user needs visible to the team and turns those insights into clearer product decisions.</p>
+                <div class="hero-buttons">
+                    <a class="button-primary" href="#contact">Contact</a>
+                    <a class="button-secondary" href="#experience">Experience</a>
+                </div>
+                <div class="profile-card">
+                    <div>
+                        <h3>About</h3>
+                        <p>Researcher who gathers, analyzes, and shares user insights so the product feels natural and helpful.</p>
+                    </div>
+                    <div class="profile-meta">
+                        <div class="meta-item"><strong>Role</strong><span>Researcher</span></div>
+                        <div class="meta-item"><strong>Focus</strong><span>UX insight</span></div>
+                        <div class="meta-item"><strong>Tools</strong><span>Interviews, personas, testing</span></div>
+                        
+                    </div>
+                </div>
+            </div>
+            <div class="hero-right">
+                <div class="photo-panel">
+                    <img src="resources/Campos.jpg" alt="Rhian Althea Campos | Researcher photo">
+                </div>
+            </div>
+        </section>
+        <div class="section-row">
+            <article id="skills" class="section-block">
+                <h3>Key skills</h3>
+                <ul>
+                    <li>User journey mapping</li>
+                    <li>Usability feedback</li>
+                    <li>Storytelling through data</li>
+                    
+                </ul>
+            </article>
+            <article id="experience" class="section-block">
+                <h3>Experience</h3>
+                <ul>
+                    <li>Group project collaboration(Quence Cafe)</li>
+                   
+                    
+                </ul>
+            </article>
+            <article id="education" class="section-block">
+                <h3>Education</h3>
+                <ul>
+                    <li>Currently Studying BS Information Technology</li>
+                    
+                </ul>
+            </article>
+            <article id="contact" class="section-block">
+                <h3>Contact</h3>
+                <div class="contact-list">
+                    <span><a href="https://www.facebook.com/share/1Ctrn6sDfh/" target="_blank">facebook.com/rhianaltheacampos</a></span>
+                    
+                </div>
+            </article>
+        </div>
+    </div>
+    <script>
+        const phrases = ["Hello, I'm Campos, Rhian", 'UX researcher'];
+        const textEl = document.querySelector('.typewriter-text');
+        let phraseIndex = 0;
+        let charIndex = 0;
+        let deleting = false;
+        function animate() {
+            const current = phrases[phraseIndex];
+            if (!deleting) {
+                textEl.textContent = current.slice(0, charIndex + 1);
+                charIndex += 1;
+                if (charIndex === current.length) {
+                    deleting = true;
+                    setTimeout(animate, 1400);
+                    return;
+                }
+            } else {
+                textEl.textContent = current.slice(0, charIndex - 1);
+                charIndex -= 1;
+                if (charIndex === 0) {
+                    deleting = false;
+                    phraseIndex = (phraseIndex + 1) % phrases.length;
+                }
+            }
+            setTimeout(animate, deleting ? 80 : 90);
+        }
+        animate();
+    </script>
+</body>
+</html>
